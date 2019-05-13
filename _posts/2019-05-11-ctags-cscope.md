@@ -6,6 +6,8 @@ tags: [ctags, cscope, linux]
 redirect_from:
   - /2019/05/11/
 ---
+* Kramdown table of contents
+{:toc .toc}
 ## ctags
 
 用法：
@@ -54,4 +56,4 @@ cscope -Rbqk
    :cs find s do_cscope //查找这个C符号出现的位置
    ```
 
-   ​
+   

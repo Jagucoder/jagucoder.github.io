@@ -6,7 +6,9 @@ tags: [git, rebase]
 redirect_from:
   - /2019/05/13/
 ---
-## Fixing up older commits
+* Kramdown table of contents
+{:toc .toc}
+# 修复以前的提交
 
 起始状态，我们新提交了一个fixup greeting.txt 来修复以前的Add greeting.txt：
 
@@ -32,15 +34,13 @@ pick 0b9d0bb fixup greeting.txt
 # f, fixup <commit> = like "squash", but discard this commit's log message
 ```
 
-将补充提交放在被修改的Add greeting.txt后一个（此时显示顺序与git log相反），且修改补充提交为fixup：
+将补充提交放在被修改的Add greeting.txt后一个（此时显示顺序与git log相反），且修改补充提交为fixup或f：
 
 ```
 pick 8d3fc77 Add greeting.txt
 fixup 0b9d0bb fixup greeting.txt
 pick 2a73a77 Add farewell.txt
 ```
-
-**Tip**: 可用f 替代fixup
 
 保存后结果如下，补充提交消失，合入到Add greeting.txt：
 
@@ -50,7 +50,7 @@ fcff6ae (HEAD -> master) Add farewell.txt
 a479e94 Add greeting.txt
 ```
 
-## Squashing several commits into one
+# 将多次commit压缩成一个
 
 用 `git rebase -i master` ，也可以用 `git rebase -i HEAD~12` 结果:
 
@@ -77,8 +77,6 @@ pick 6b608ae Add 'd' to squash.txt
 
 将需要压缩的改为squash或s：
 
-We're going to squash all of these changes into the first commit. To do this, change every "pick" operation to "squash", except for the first line, like so:
-
 ```
 pick 1e85199 Add 'H' to squash.txt
 squash fff6631 Add 'e' to squash.txt
@@ -94,7 +92,7 @@ squash a513fd1 Add 'l' to squash.txt
 squash 6b608ae Add 'd' to squash.txt
 ```
 
-
+保存后：
 
 ```
 # This is a combination of 12 commits.
@@ -197,5 +195,5 @@ Date:   Sun Apr 28 14:21:56 2019 -0400
 
 
 
-参考：<https://git-rebase.io/>
+**参考：<https://git-rebase.io/>**
 
