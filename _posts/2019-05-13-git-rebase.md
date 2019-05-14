@@ -193,6 +193,30 @@ Date:   Sun Apr 28 14:21:56 2019 -0400
     Add squash.txt with contents "Hello, world"
 ```
 
+# 在git pull中使用rebase
+
+通常在本地commit后，用`git pull`(`git fetch + git merge`)会生成一个merge的新提交。
+
+```
+git fetch origin
+git merge origin/master
+```
+
+为避免这种情况发生，可以用
+
+```
+git fetch origin
+git rebase origin/master
+```
+
+以上等效于`git pull --rebase`
+
+如果足够喜欢这种方式，可以将rebase设为pull的默认选项，替代掉merge
+
+```
+git config --global pull.rebase true
+```
+
 
 
 **参考：<https://git-rebase.io/>**

@@ -8,19 +8,19 @@ redirect_from:
 ---
 * Kramdown table of contents
 {:toc .toc}
-## ctags
+# ctags
 
 用法：
 
 ```
 ctags . -R //生成ctag文件
-ctrl + ] //下一个，需在ctag文件所在目录执行vim
+ctrl + ] //下一个，
 ctrl + T //上一个
 ```
 
+**注意：跳转时需在ctag文件所在目录执行vim命令**
 
-
-## cscope
+# cscope
 
 1. cscope的用法很简单，首先需要为你的代码生成一个cscope数据库。在你的项目根目录运行：
 
