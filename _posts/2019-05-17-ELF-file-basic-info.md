@@ -94,17 +94,48 @@ Section的头部定义了这个文件的所有section，这些头部信息主要
 
 包含可执行代码。它会以可读可执行的权限被打包进segment，且只会被加载一次，可以被objdump 读取。
 
+**存放：常量**
+
 ### .data
 
 包含初始化的数据，读写权限
+
+**存放：初始化为非0的全局变量**
 
 ### .rodata
 
 包含初始化的数据，只有读权限（=A）
 
+**存放：初始化的数组**
+
 ### .bss
 
 未初始化的数据，读写权限（=WA）
+
+**存放：未初始化的静态变量、未初始化的全局变量**
+
+### 另外：不在ELF中的
+
+堆(heap)：动态分配
+
+栈(stack)：局部变量，未初始化数组，函数调用时传递参数和返回值
+
+
+
+```
+高地址>>>>>>>>
+    stack(grow down)
+    ||||
+    ||||
+    heap(grow up)
+    |||
+uninnitialized data(bss)//initialized to 0
+    |||
+initialized data//read from program file
+    |||
+    text
+低地址>>>>>>>>
+```
 
 ## 静态和动态的二进制
 
